@@ -3,8 +3,8 @@ import {
   categories,
   sampleProducts,
 } from 'src/app/shared/constants/data.model';
-import { ProductCategory } from 'src/app/shared/product-category/models/category.model';
-import { ProductModel } from 'src/app/shared/product-category/models/product.model';
+import { ProductCategory } from 'src/app/models/category.model';
+import { ProductModel } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-featured-section',
