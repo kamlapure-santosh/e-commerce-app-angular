@@ -7,7 +7,8 @@
                     <div class="header__top__left">
                         <ul>
                             <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                            <li>Free Shipping for all Order of $99</li>
+                            <li *ngIf="timeoutSeconds>1 ">Your session will timeout in {{timeoutSeconds}}</li>
+                            <li *ngIf="timeoutSeconds===1">Your session timed out</li>
                         </ul>
                     </div>
                 </div>

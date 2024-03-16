@@ -4,7 +4,7 @@
 </div>
 
 <app-humberger></app-humberger>
-<app-header></app-header>
+<app-header [timeoutSeconds]="countdown??-1"></app-header>
 <!-- top section and bottom footer is common -->
 
 <!-- contents will be dynamically replaced in router-outlet-->
@@ -19,3 +19,4 @@
 <app-blog-section></app-blog-section> -->
 
 <app-footer></app-footer>
+<div>IDLE_STATE: {{idleState}}, COUNTDOWN: {{countdown}}, LAST_PING: {{lastPing | date}}</div>
