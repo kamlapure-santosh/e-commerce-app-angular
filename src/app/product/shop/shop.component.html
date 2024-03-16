@@ -9,21 +9,8 @@
             <app-category></app-category>
           </div>
           <div class="sidebar__item">
-            <h4>Price</h4>
-            <div class="price-range-wrap">
-              <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                data-min="10" data-max="540">
-                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-              </div>
-              <div class="range-slider">
-                <div class="price-input">
-                  <input type="text" id="minamount">
-                  <input type="text" id="maxamount">
-                </div>
-              </div>
-            </div>
+            <h4>Price under {{price}}</h4>
+            <input class="form-control" type="number" min="1" max="10000" [(ngModel)]="price">
           </div>
           <div class="sidebar__item sidebar__item__color--option">
             <h4>Colors</h4>
@@ -163,8 +150,7 @@
           <div class="section-title product__discount__title">
             <h2>Sale Off</h2>
           </div>
-
-          <app-product-list></app-product-list>
+          <app-product-list [maxPrice]="price" (productCountChanged)="productCountChanged($event)"></app-product-list>
         </div>
         <div class="filter__item">
           <div class="row">
@@ -180,7 +166,7 @@
             </div>
             <div class="col-lg-4 col-md-4">
               <div class="filter__found">
-                <h6><span>16</span> Products found</h6>
+                <h6><span>{{totalProducts}}</span> Products found</h6>
               </div>
             </div>
             <div class="col-lg-4 col-md-3">
@@ -192,7 +178,7 @@
           </div>
         </div>
 
-        <app-product-list></app-product-list>
+        <app-product-list [maxPrice]="price"></app-product-list>
       </div>
     </div>
   </div>
