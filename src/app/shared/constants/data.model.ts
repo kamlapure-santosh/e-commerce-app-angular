@@ -1,5 +1,5 @@
-import { ProductCategory } from 'src/app/product/product-category/models/category.model';
-import { ProductModel } from 'src/app/product/product-category/models/product.model';
+import { ProductCategory } from '../product-category/models/category.model';
+import { ProductModel } from '../product-category/models/product.model';
 
 export const categories: ProductCategory[] = [
   { categoryId: 1, categoryName: 'Milk' },

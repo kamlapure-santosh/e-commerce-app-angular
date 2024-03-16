@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductCategory } from 'src/app/product/product-category/models/category.model';
-import { ProductModel } from 'src/app/product/product-category/models/product.model';
 import {
   categories,
   sampleProducts,
 } from 'src/app/shared/constants/data.model';
+import { ProductCategory } from 'src/app/shared/product-category/models/category.model';
+import { ProductModel } from 'src/app/shared/product-category/models/product.model';
 
 @Component({
   selector: 'app-featured-section',

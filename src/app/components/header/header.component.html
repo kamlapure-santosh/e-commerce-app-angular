@@ -20,7 +20,7 @@
                             <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                         <div class="header__top__right__language">
-                            <img src="assets/img/language.png" alt="">
+                            <img src="assets/img/language.png" alt="" />
                             <div>English</div>
                             <span class="arrow_carrot-down"></span>
                             <ul>
@@ -40,32 +40,47 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="assets/img/logo.png" alt=""></a>
+                    <a [routerLink]="['/home']"><img src="assets/img/logo.png" alt="" /></a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./shop-grid.html">Shop</a></li>
-                        <li><a href="#">Pages</a>
+                        <li class="active">
+                            <a [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/product/shop']" routerLinkActive="router-link-active">Shop</a>
+                        </li>
+                        <li>
+                            <a href="#">Pages</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="./shop-details.html">Shop Details</a></li>
-                                <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="./checkout.html">Check Out</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
+                                <li>
+                                    <a [routerLink]="['/shopping/cart']" routerLinkActive="router-link-active">Shoping
+                                        Cart</a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="['/shopping/wishlist']">Shoping Cart</a>
+                                </li>
+                                <li><a [routerLink]="['/shopping/checkout']">Check Out</a></li>
                             </ul>
                         </li>
                         <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li>
+                            <a [routerLink]="['/contact']" routerLinkActive="router-link-active">Contact</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li>
+                            <a href="#"><i class="fa fa-heart"></i> <span>1</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a>
+                        </li>
                     </ul>
                     <div class="header__cart__price">item: <span>$150.00</span></div>
                 </div>
@@ -75,5 +90,5 @@
             <i class="fa fa-bars"></i>
         </div>
     </div>
-  </header>
-  <!-- Header Section End -->
+</header>
+<!-- Header Section End -->

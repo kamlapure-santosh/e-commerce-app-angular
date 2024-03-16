@@ -12,7 +12,9 @@ import { CategoryComponent } from './components/category/category.component';
 import { FeaturedSectionComponent } from './components/featured-section/featured-section.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { LatestProductsComponent } from './components/latest-products/latest-products.component';
-import { ProductCategoryComponent } from './product/product-category/product-category.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { HomeComponent } from './components/home/home.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,11 @@ import { ProductCategoryComponent } from './product/product-category/product-cat
     FeaturedSectionComponent,
     BannerComponent,
     LatestProductsComponent,
-    ProductCategoryComponent
+    ContactComponent,
+    HomeComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
