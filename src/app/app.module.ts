@@ -12,6 +12,12 @@ import { CategoryComponent } from './components/category/category.component';
 import { FeaturedSectionComponent } from './components/featured-section/featured-section.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { LatestProductsComponent } from './components/latest-products/latest-products.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { HomeComponent } from './components/home/home.component';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -24,13 +30,23 @@ import { LatestProductsComponent } from './components/latest-products/latest-pro
     CategoryComponent,
     FeaturedSectionComponent,
     BannerComponent,
-    LatestProductsComponent
+    LatestProductsComponent,
+    ContactComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    HttpClientModule,
+    NgIdleKeepaliveModule.forRoot(), // use NgIdleModule.forRoot() if not using keepalive
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
