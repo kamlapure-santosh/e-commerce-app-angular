@@ -12,6 +12,13 @@
             <h4>Price under {{price}}</h4>
             <input class="form-control" type="number" min="1" max="10000" [(ngModel)]="price">
           </div>
+          <div class="sidebar__item">
+            <h4>Search</h4>
+            <div class="price-range-wrap">
+              <input type="text" class="form-control" placeholder="What do you need?" [(ngModel)]="searchQuery"><br>
+              <button type="button" (click)="onSearchSubmit()" class="site-btn">SEARCH</button>
+            </div>
+          </div>
           <div class="sidebar__item sidebar__item__color--option">
             <h4>Colors</h4>
             <div class="sidebar__item__color sidebar__item__color--white">
@@ -177,8 +184,6 @@
             </div>
           </div>
         </div>
-
-        <app-product-list [maxPrice]="price"></app-product-list>
       </div>
     </div>
   </div>

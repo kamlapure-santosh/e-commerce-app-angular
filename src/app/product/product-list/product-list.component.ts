@@ -18,6 +18,7 @@ import { ProductService } from 'src/app/services/product.services';
 export class ProductListComponent implements OnChanges {
   products: ProductModel[] = [];
   @Input() maxPrice: number = 1000; //Now we will make this as input so parent component can pass dynamic values
+  @Input() searchQuery: string = '';
   @Output() productCountChanged = new EventEmitter<number>();
 
   filteredProducts: ProductModel[] = [];
@@ -25,10 +26,7 @@ export class ProductListComponent implements OnChanges {
   constructor(private productService: ProductService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.filteredProducts = this.products.filter(
-      (f) => f.price <= this.maxPrice
-    );
-    this.productCountChanged.emit(this.filteredProducts.length);
+    this.filterProducts();
   }
 
   ngOnInit(): void {
@@ -38,8 +36,23 @@ export class ProductListComponent implements OnChanges {
   getProducts() {
     this.productService.getProducts(10).subscribe((d) => {
       this.products = d;
-      this.filteredProducts = d; //assign initially for this as well
+      this.filterProducts();
       this.productCountChanged.emit(this.filteredProducts.length); //assign initially for this as well
     });
+  }
+
+  filterProducts() {
+    this.filteredProducts = this.products.filter(
+      (f) => f.price <= this.maxPrice
+    );
+    if (this.searchQuery) {
+      this.filteredProducts = this.filteredProducts.filter((f) =>
+        f.productName
+          .toLowerCase()
+          .includes(this.searchQuery.toLocaleLowerCase())
+      );
+    }
+
+    this.productCountChanged.emit(this.filteredProducts.length);
   }
 }

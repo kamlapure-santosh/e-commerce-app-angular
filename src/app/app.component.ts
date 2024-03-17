@@ -23,8 +23,8 @@ export class AppComponent {
     private toastrService: ToastrService
   ) {
     // set idle parameters
-    idle.setIdle(5); // how long can they be inactive before considered idle, in seconds
-    idle.setTimeout(5); // how long can they be idle before considered timed out, in seconds
+    idle.setIdle(600); // how long can they be inactive before considered idle, in seconds
+    idle.setTimeout(30); // how long can they be idle before considered timed out, in seconds
     idle.setInterrupts(DEFAULT_INTERRUPTSOURCES); // provide sources that will "interrupt" aka provide events indicating the user is active
 
     // do something when the user becomes idle
