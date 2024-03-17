@@ -8,6 +8,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ProductModel } from 'src/app/models/product.model';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.services';
 
 @Component({
@@ -23,7 +24,10 @@ export class ProductListComponent implements OnChanges {
 
   filteredProducts: ProductModel[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     this.filterProducts();
@@ -52,7 +56,10 @@ export class ProductListComponent implements OnChanges {
           .includes(this.searchQuery.toLocaleLowerCase())
       );
     }
-
     this.productCountChanged.emit(this.filteredProducts.length);
+  }
+
+  addToCart(product: ProductModel): void {
+    this.cartService.addToCart(product);
   }
 }
